@@ -3,30 +3,29 @@ const mongoose = require('mongoose');
 
 const alunoSchema = new mongoose.Schema(
     {
-        nome:{
-            type:String,
-            require: [true, "este campo e obrigatorio"],
+        nome: {
+            type: String,
+            required: [true, "Este campo é obrigatório"],
             minlength: [2, "Nome muito curto"],
             maxlength: [100, "Nome muito longo"]
         },
-        idade:{
+        idade: {
             type: Number,
-            required: [true, "Este campo e obrigatorio"],
-            min: [0, "idade não pode ser negativa"],
-            max: [150, "idade invalida"],
+            required: [true, "Este campo é obrigatório"],
+            min: [0, "Idade não pode ser negativa"],
+            max: [150, "Idade inválida"]
         },
-        curso:{
-            type:String,
-            required: [true, "Campo obrigatorio"],
-            maxlength: [120, "Curso muito longo"] 
+        curso: {
+            type: String,
+            required: [true, "Este campo é obrigatório"],
+            maxlength: [120, "Curso muito longo"]
         },
-        createAt:{
-            type: Date,
+        createdAt: {
+            type: Date, 
             default: Date.now
         }
-
     },
-    {versionKey: false }
+    { versionKey: false }
 );
 
 const Aluno = mongoose.model("Aluno", alunoSchema);
